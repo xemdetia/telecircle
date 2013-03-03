@@ -20,8 +20,7 @@ def sqlite_setup(filepath):
             c = conn.cursor()
             c.executescript(f.read())
 
-    conn.close() # done with the database
-    return
+    return conn # give us a reference to this database
 
 if __name__ == "__main__":
     print "Setting up database:"
