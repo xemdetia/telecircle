@@ -8,14 +8,8 @@ def sql_file_filter(x):
     else:
         return False
 
-def sqlite_setup():
-    filepath = raw_input( "Where do you want the sqlite database to be stored? (Default=./telecircled.sqlite): ")
-    if filepath == "":
-        print "Default of ./telecircled.sqlite was chosen."
-        filepath = "./telecircled.sqlite"
-    else:
-        print "Using "+filepath+" as the file for the database."
-    
+def sqlite_setup(filepath):
+
     # connect to the selected filepath
     conn = sqlite3.connect(filepath)
 
@@ -34,6 +28,13 @@ if __name__ == "__main__":
     dbchoice = raw_input( "Do you want to use SQLi(t)e or (P)ostgres? (t/p):" )
 
     if dbchoice == "t" or dbchoice == "T":
-        sqlite_setup()
+        filepath = raw_input( "Where do you want the sqlite database to be stored? (Default=./telecircled.sqlite): ")
+        if filepath == "":
+            print "Default of ./telecircled.sqlite was chosen."
+            filepath = "./telecircled.sqlite"
+        else:
+            print "Using "+filepath+" as the file for the database."
+    
+        sqlite_setup(filepath)
     
 
