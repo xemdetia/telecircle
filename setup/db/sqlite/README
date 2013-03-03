@@ -1,0 +1,3 @@
+All of the scripts in this database are designed to be mapped to a
+blank database and are NOT upgrade scripts. They WILL fail if tables
+exist with the same name.
