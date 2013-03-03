@@ -1,3 +1,20 @@
 All of the scripts in this database are designed to be mapped to a
 blank database and are NOT upgrade scripts. They WILL fail if tables
 exist with the same name.
+
+* Summary of Tables:
+  
+  - configuration :: A database of the administrator-defined
+                     customization data. Administrators should use the
+                     appropriate interface but reading and writing to
+                     the database is not a problem.
+  - passwords :: a userid foreign-keyed table that maps userids to
+                 their appropriate pwhash, which in this case is a
+                 SHA-1 representation.
+  - users :: a user-id primary keyed table which holds the username,
+             user id and email.
+  - usersessions :: This is related to the session management
+                    component of the web frontend. It relies heavily
+                    on [[http://docs.python.org/2/library/uuid.html][Python's UUID]], but any database backend should
+                    manage and mitigate possible UUID collisions
+                    because they can and will occur.
