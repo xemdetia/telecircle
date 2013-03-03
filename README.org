@@ -1,0 +1,6 @@
+
+Telecircle is a very unexciting system that is designed to cooperate
+with ejabberd and other widely available software packages to provide
+an easy-to-maintain closed network on low-power servers (VPS's
+specifically).
+
