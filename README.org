@@ -4,3 +4,14 @@ with ejabberd and other widely available software packages to provide
 an easy-to-maintain closed network on low-power servers (VPS's
 specifically).
 
+
+* Software Requirements
+
+  - *REQUIRED*
+    - Python 2.7.x
+    - ejabberd 2.1.11
+
+
+
+
+
