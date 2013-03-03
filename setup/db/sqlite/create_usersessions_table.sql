@@ -13,5 +13,9 @@ CREATE TABLE usersessions (
        -- predetermined amount, the row should be purged from the
        -- database or at least considered invalid.
        created DATETIME,
-       lastseen DATETIME
+       lastseen DATETIME,
+
+       -- Python pickled data that is only ever internal. This should
+       -- never be sent to the client.
+       session_data TEXT
 );
