@@ -8,7 +8,7 @@ def index_fn(env):
 def about_fn(env):
     return "about"
 
-class TestSimpleGetOpts(unittest.TestCase):
+class TestSimpleGet(unittest.TestCase):
     
     r = None
     
