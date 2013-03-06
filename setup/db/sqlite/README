@@ -18,3 +18,13 @@ exist with the same name.
                     on [[http://docs.python.org/2/library/uuid.html][Python's UUID]], but any database backend should
                     manage and mitigate possible UUID collisions
                     because they can and will occur.
+		    
+* Summary of Extension Tables
+  - invites :: Part of the invites module (known as mod_invite). This
+               table contains an id for each invite, a uuid for the
+               invite, the date of issuance and the date it was
+               claimed. It also holds the id of the issuer, and the id
+               of the claimant. Finally the IP address of the claimant
+               is logged for auditing purposes.
+	       
+	       
