@@ -1,0 +1,10 @@
+<html>
+<head>
+	<title>Invitiation not Found</title>
+</head>
+<body>
+  <h1>Error - Unknown Invitation Code</h1>
+  <p>The invitation code <strong>$invite_code</strong> is either
+  already used or invalid.
+</body>
+</html>

@@ -30,7 +30,7 @@ class Session:
 
         if session_id is not None:
             # call helper to fill out this 
-            _load_by_session_id(db_manager, session_id)
+            self.load_by_session_id()
         return
 
     # The session itself is a key-value store, and the most reasonable
@@ -39,17 +39,17 @@ class Session:
     # reference instead of by value we can assert that any
     # modifications done outside of a session object
     def get_dict(self):
-        return self.values()
+        return self.values
 
     # We keep a context to the database manager in question open so
     # this call becomes trivial.
     def save(self):
-
-        if self.existing_session is False:
-            self.db_manager.make_new_session(self.values)
-        else:
+        if self.existing_session:
             self.db_manager.replace_session(self.session_id, 
                                             self.values)
+        else:
+            self.db_manager.make_new_session(self.values)
+
         return False
 
     # Reach out the database to grab a session id. Session id's are
@@ -59,8 +59,17 @@ class Session:
     # to have collisions it is expected that the db_manager handles
     # this uncertainty. UUID's should also be managed in integer form
     # to prevent string problems.
-    def _load_by_session_id(self, db_manager, session_id):
+    def load_by_session_id(self):
 
-        self.values = db_manager.get_session_dict(session_id)
+        self.values = self.db_manager.get_session_dict(self.session_id)
         return
-    
+
+    # String representation
+    def __str__(self):
+        
+        ret =  "<Session: using "+self.db_manager.__class__.__name__
+        ret += "; existing session: "+str(self.existing_session)
+        ret += "; session_id: "+str(self.session_id)
+        ret += "; values: "+str(self.values)+">"
+
+        return ret
